@@ -1,0 +1,87 @@
+{
+  "entities": {
+    "users": {
+      "title": "User Account & Role Profile",
+      "description": "User authentication profile with assigned platform role (farmer, buyer, admin)",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "fullName": { "type": "string" },
+        "email": { "type": "string" },
+        "phoneNumber": { "type": "string" },
+        "role": { "type": "string", "enum": ["farmer", "buyer", "admin"] },
+        "state": { "type": "string" },
+        "district": { "type": "string" },
+        "preferredLanguage": { "type": "string" },
+        "isVerified": { "type": "boolean" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "fullName", "email", "role"]
+    },
+    "crops": {
+      "title": "Farmer Cultivated Crop",
+      "description": "Crop lifecycle, plot details, sowing and harvest schedules",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "farmerId": { "type": "string" },
+        "cropName": { "type": "string" },
+        "variety": { "type": "string" },
+        "farmPlot": { "type": "string" },
+        "cultivatedAreaAcres": { "type": "number" },
+        "sowingDate": { "type": "string" },
+        "expectedHarvestDate": { "type": "string" },
+        "growthStage": { "type": "string" },
+        "soilType": { "type": "string" },
+        "irrigationMethod": { "type": "string" },
+        "farmingMethod": { "type": "string" },
+        "status": { "type": "string", "enum": ["healthy", "monitoring", "harvested", "sold"] }
+      },
+      "required": ["id", "farmerId", "cropName", "cultivatedAreaAcres"]
+    },
+    "productListings": {
+      "title": "Marketplace Produce Listing",
+      "description": "Farmer produce listing available for buyer discovery and direct trade",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "farmerId": { "type": "string" },
+        "farmerName": { "type": "string" },
+        "cropName": { "type": "string" },
+        "variety": { "type": "string" },
+        "quantityAvailable": { "type": "number" },
+        "unit": { "type": "string" },
+        "pricePerUnit": { "type": "number" },
+        "qualityGrade": { "type": "string", "enum": ["A+", "A", "B+", "Standard"] },
+        "harvestDate": { "type": "string" },
+        "district": { "type": "string" },
+        "state": { "type": "string" },
+        "imageUrl": { "type": "string" },
+        "isActive": { "type": "boolean" }
+      },
+      "required": ["id", "farmerId", "cropName", "quantityAvailable", "pricePerUnit"]
+    },
+    "orders": {
+      "title": "Agricultural Trade Order",
+      "description": "Direct transaction between buyer and farmer with formal status tracking",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "listingId": { "type": "string" },
+        "cropName": { "type": "string" },
+        "buyerId": { "type": "string" },
+        "buyerName": { "type": "string" },
+        "farmerId": { "type": "string" },
+        "farmerName": { "type": "string" },
+        "quantity": { "type": "number" },
+        "unit": { "type": "string" },
+        "agreedPricePerUnit": { "type": "number" },
+        "totalAmount": { "type": "number" },
+        "status": { "type": "string" },
+        "deliveryMethod": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "buyerId", "farmerId", "quantity", "totalAmount", "status"]
+    }
+  }
+}

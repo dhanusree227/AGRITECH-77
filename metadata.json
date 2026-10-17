@@ -1,0 +1,10 @@
+{
+  "name": "AgriTech — Smart Agricultural Trading & Farmer Support",
+  "description": "AI-powered agricultural platform connecting farmers, buyers, and administrators with predictive yield & price analytics, mandi intelligence, voice advisory, and direct trade.",
+  "requestFramePermissions": [
+    "microphone"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
